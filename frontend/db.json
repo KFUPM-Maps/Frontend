@@ -1,13 +1,34 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "user": {
+        "email": "yousef@example.com",
+        "name": "Yousef Abdelaziz"
+      },
+      "accessToken": "123456"
+    },
+    {
+      "id": 2,
+      "user": {
+        "email": "Khalid@example.com",
+        "name": "Khalid Ahmed"
+      },
+      "accessToken": "19797149374"
+    }
+  ],
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
-  ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+    {
+      "id": 1,
+      "title": "Welcome Post",
+      "content": "This is your first post!",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "Another Post",
+      "content": "Testing json-server with JWT!",
+      "authorId": 2
+    }
+  ]
 }

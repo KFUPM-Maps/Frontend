@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar.jsx";
 
 const Layout = () => {
   return (
-    <div className="app">
+    <div>
       <Navbar />
       <main className="main-content">
         <Outlet />

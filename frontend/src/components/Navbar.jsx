@@ -1,5 +1,5 @@
 export default function Navbar() {
     return (
-        <div>NavBar</div>
+        <div className="hidden">NavBar</div>
     )
 }
