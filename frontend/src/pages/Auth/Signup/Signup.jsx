@@ -2,9 +2,12 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../../AuthLogic/AuthContext";
 import { useNavigate } from "react-router";
 import { signupRequest } from "../../../api/auth";
+import { usePopup } from "../../../components/Popup/PopupContext";
 
 const Signup = () => {
     const user = useContext(AuthContext);
+    const popup = usePopup();
+
     const navigate = useNavigate();
     const [form, setForm] = useState({
         firstName: "",
@@ -26,10 +29,11 @@ const Signup = () => {
             const response = await signupRequest(form.firstName, form.lastName, form.email, form.password);
             if (response.success) {
                 user.login(response.data.user, response.data.accessToken);
+                popup.showSuccess("Signup successful!");
                 navigate("/");
             }
             else {
-                alert("Signup failed: " + response.error);
+                popup.showError("Signup failed: " + response.error);
             }
         }
 

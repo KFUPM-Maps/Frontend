@@ -23,7 +23,7 @@ function App() {
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
         </Route>
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={<h1 className="font-extrabold text-red-800 m-2 flex justify-center items-center">404 Not Found</h1>} />
       </Route>
     </Routes>
   );
