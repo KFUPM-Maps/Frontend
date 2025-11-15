@@ -4,7 +4,8 @@
       "id": 1,
       "user": {
         "email": "yousef@example.com",
-        "name": "Yousef Abdelaziz"
+        "name": "Yousef Abdelaziz",
+        "type": "admin"
       },
       "accessToken": "123456"
     },
@@ -12,7 +13,8 @@
       "id": 2,
       "user": {
         "email": "Khalid@example.com",
-        "name": "Khalid Ahmed"
+        "name": "Khalid Ahmed",
+        "type": "student"
       },
       "accessToken": "19797149374"
     }

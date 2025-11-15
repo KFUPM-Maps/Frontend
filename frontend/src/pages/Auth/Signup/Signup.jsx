@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../../AuthLogic/AuthContext";
 import { useNavigate } from "react-router";
 import { signupRequest } from "../../../api/auth";

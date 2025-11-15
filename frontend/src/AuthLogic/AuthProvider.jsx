@@ -21,14 +21,29 @@ export const AuthProvider = ({ children }) => {
   //   tryRefresh();
   // }, []);
 
+  useEffect(()=>{
+    const storageUser = localStorage.getItem("user")
+    const storageToken = localStorage.getItem("accessToken")
+    if(storageUser){
+      setUser(JSON.parse(storageUser))
+    }
+    if(storageToken){
+      setAccessToken(storageToken)
+    }
+  }, [])
+
   const login = (user, token) => {
     setUser(user);
     setAccessToken(token);
+    localStorage.setItem("user", JSON.stringify(user))
+    localStorage.setItem("accessToken", token)
   };
 
   const logout = () => {
     setUser(null);
     setAccessToken(null);
+    localStorage.removeItem("user")
+    localStorage.removeItem("accessToken")
     navigate("/");
   };
 

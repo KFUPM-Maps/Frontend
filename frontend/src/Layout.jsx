@@ -4,11 +4,11 @@ import Navbar from "./components/Navbar.jsx";
 
 const Layout = () => {
   return (
-    <div>
-      <Navbar />
-      <main className="main-content">
+    <div className="flex h-screen">
+      <main className="flex-grow h-full">
         <Outlet />
       </main>
+      <Navbar />
     </div>
   );
 };

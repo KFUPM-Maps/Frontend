@@ -5,6 +5,7 @@ import { useAxiosSetup } from "./AuthLogic/useAxiosSetup.jsx";
 import AuthLayout from "./pages/Auth/AuthLayout.jsx";
 import Login from "./pages/Auth/Login/Login.jsx";
 import Signup from "./pages/Auth/Signup/Signup.jsx";
+import Logout from "./pages/Auth/Logout.jsx";
 import "./styles.css";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="logout" element={<Logout />} />
         </Route>
         {/* <Route
           path="/anyProtectedRoute"
