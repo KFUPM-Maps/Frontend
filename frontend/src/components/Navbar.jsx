@@ -23,19 +23,19 @@ export default function Navbar() {
     <>
       <div
         className={`
-            fixed top-0 left-0 h-screen bg-gray-900 text-white transition-all duration-300 z-40
+            fixed top-0 left-0 h-screen bg-bg text-text transition-all duration-300 z-40
             ${isOpen ? "translate-x-0" : "translate-x-full"} w-full
             md:translate-x-0 md:w-64 md:static md:flex
         `}
       >
         <div
           className={`
-            flex flex-col h-full overflow-hidden transition-opacity duration-300
+            flex flex-col overflow-hidden w-full transition-opacity duration-300
             ${isOpen ? "opacity-100" : "opacity-0 md:opacity-100"}
             ${isOpen || "pointer-events-none md:pointer-events-auto"}
           `}
         >
-          <h1 className="text-2xl font-bold p-6 border-b border-gray-700">
+          <h1 className="text-2xl font-bold p-6 border-b border-border">
             KFUPM Maps
           </h1>
           <nav className="flex flex-col gap-4 p-6">
@@ -44,7 +44,7 @@ export default function Navbar() {
               <NavLink
                 key={link.name}
                 to={link.href}
-                className="hover:text-gray-300 text-lg"
+                className="hover:text-text-muted text-lg"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -57,10 +57,10 @@ export default function Navbar() {
 
       <button
         onClick={toggleNavbar}
-        className="md:hidden fixed top-4 right-4 z-50 text-gray-800"
+        className="md:hidden fixed top-4 right-4 z-50 text-text"
       >
         <span
-          className="material-symbols-rounded text-3xl"
+          className="material-symbols-rounded text-9xl"
           onClick={toggleNavbar}
         >
           {isOpen ? "close" : "menu"}

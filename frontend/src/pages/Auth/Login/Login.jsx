@@ -38,12 +38,12 @@ const Login = () => {
         performLogin();
     }
     return (
-        <form className="flex flex-col items-center gap-3" onSubmit={(e)=>onFormSubmit(e)}>
-            <label className="self-start" htmlFor="email">Email*</label>
-            <input className="bg-white shadow" type="email" id="email" name="email" required value={form.email} onChange={(e)=>onFormChange(e)}/>
-            <label className="self-start" htmlFor="password">Password*</label>
-            <input className="bg-white shadow" type="password" id="password" name="password" required value={form.password} onChange={(e)=>onFormChange(e)}/>
-            <button className="bg-white w-1/2 shadow mt-2" type="submit">Login</button>
+        <form className="flex flex-col items-start md:items-center gap-2 w-full" onSubmit={(e)=>onFormSubmit(e)}>
+            <label className="text-text md:self-start" htmlFor="email">Email*</label>
+            <input className="bg-bg-light text-text border border-border-muted p-1 w-full" type="email" id="email" name="email" required value={form.email} onChange={(e)=>onFormChange(e)}/>
+            <label className="text-text md:self-start" htmlFor="password">Password*</label>
+            <input className="bg-bg-light text-text border border-border-muted p-1 w-full" type="password" id="password" name="password" required value={form.password} onChange={(e)=>onFormChange(e)}/>
+            <button className="self-center bg-primary hover:bg-secondary rounded py-2 px-4 mt-2" type="submit">Login</button>
         </form>
     );
 };

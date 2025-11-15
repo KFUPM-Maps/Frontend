@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar.jsx";
 
 const Layout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-bg-dark">
       <main className="flex-grow h-full">
         <Outlet />
       </main>
