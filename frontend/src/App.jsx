@@ -3,6 +3,7 @@ import Layout from "./Layout.jsx";
 import Home from "./pages/Home/Home.jsx";
 import { useAxiosSetup } from "./AuthLogic/useAxiosSetup.jsx";
 import AuthLayout from "./pages/Auth/AuthLayout.jsx";
+import ProtectedRoute from "./AuthLogic/ProtectedRouteLayout.jsx";
 import Login from "./pages/Auth/Login/Login.jsx";
 import Signup from "./pages/Auth/Signup/Signup.jsx";
 import Logout from "./pages/Auth/Logout.jsx";
@@ -19,16 +20,10 @@ function App() {
           <Route path="signup" element={<Signup />} />
           <Route path="logout" element={<Logout />} />
         </Route>
-        {/* <Route
-          path="/anyProtectedRoute"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        /> */}
+        <Route element= {<ProtectedRoute />}>
+          {/* Protected routes go here */}
+        </Route>
         <Route path="*" element={<div>404 Not Found</div>} />
-
       </Route>
     </Routes>
   );
