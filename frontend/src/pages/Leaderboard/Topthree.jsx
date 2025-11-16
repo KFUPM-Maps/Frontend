@@ -1,7 +1,7 @@
 const topThree = [
-    { place: 2, name: "Flan Alflany", points: 1500, medal: "🥈" },
-    { place: 1, name: "Flan Alflany", points: 2000, medal: "🥇" },
-    { place: 3, name: "Flan Alflany", points: 1200, medal: "🥉" },
+    { place: 2, name: "hani Ahmed", points: 1500, medal: "🥈" },
+    { place: 1, name: "omar Abdelaziz", points: 2000, medal: "🥇" },
+    { place: 3, name: "ahmad Ali", points: 1200, medal: "🥉" },
   ];
   
   export default function Topthree() {

@@ -6,16 +6,16 @@ export default function Leaderboard() {
 
   useEffect(() => {
     const userList = [
-      { name: "Alice", score: 150 },
-      { name: "Bob", score: 120 },
-      { name: "Charlie", score: 100 },
-      { name: "David", score: 95 },
-      { name: "Eve", score: 90 },
-      { name: "Frank", score: 85 },
-      { name: "Grace", score: 80 },
-      { name: "Henry", score: 75 },
-      { name: "Isabella", score: 70 },
-      { name: "Jack", score: 65 },
+      { name: "Yousef", score: 150 },
+      { name: "Khalid", score: 120 },
+      { name: "Mohamed", score: 100 },
+      { name: "Ahmed", score: 95 },
+      { name: "Ali", score: 90 },
+      { name: "Osama", score: 85 },
+      { name: "Hassan", score: 80 },
+      { name: "Abdelrahman ", score: 75 },
+      { name: "Mona", score: 70 },
+      { name: "Nour", score: 65 },
     ];
 
     setUsers(userList);
