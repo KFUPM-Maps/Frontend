@@ -10,7 +10,6 @@ import Logout from "./pages/Auth/Logout.jsx";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.jsx";
 import Myaccount from "./pages/Myaccount/Myaccount.jsx";
 import "./styles.css";
-
 function App() {
   //useAxiosSetup();
   return (
