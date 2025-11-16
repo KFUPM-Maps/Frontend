@@ -6,16 +6,16 @@ export default function Leaderboard() {
 
   useEffect(() => {
     const userList = [
-      { name: "Yousef", score: 150 },
-      { name: "Khalid", score: 120 },
-      { name: "Mohamed", score: 100 },
-      { name: "Ahmed", score: 95 },
-      { name: "Ali", score: 90 },
-      { name: "Osama", score: 85 },
-      { name: "Hassan", score: 80 },
-      { name: "Abdelrahman ", score: 75 },
-      { name: "Mona", score: 70 },
-      { name: "Nour", score: 65 },
+      { firstName: "Yousef", lastName: "Alhajri", score: 150 },
+      { firstName: "Khalid", lastName: "Alotaibi", score: 120 },
+      { firstName: "Mohamed", lastName: "Hassan", score: 100 },
+      { firstName: "Ahmed", lastName: "Yahya", score: 95 },
+      { firstName: "Ali", lastName: "Saleh", score: 90 },
+      { firstName: "Osama", lastName: "BinZaid", score: 85 },
+      { firstName: "Hassan", lastName: "Almalki", score: 80 },
+      { firstName: "Abdelrahman ", lastName: "Khaled", score: 75 },
+      { firstName: "Mona", lastName: "Saeed", score: 70 },
+      { firstName: "Nour", lastName: "Ibrahim", score: 65 },
     ];
 
     setUsers(userList);
@@ -25,75 +25,57 @@ export default function Leaderboard() {
   const topThree = sortedUsers.slice(0, 3);
 
   return (
-    <div className="h-full p-6 md:p-8 bg-bg-dark text-text">
-      <div className="max-w-5xl mx-auto">
+    <div className="h-full w-full flex justify-center items-center text-text">
+      <div className="w-10/12 border  bg-linear-to-t from-bg to-bg-light border-border rounded-2xl p-6 md:p-8 shadow-lg">
 
-        {/* Page Title */}
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">Leaderboard</h1>
+        <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
+          Leaderboard
+        </h2>
 
-        {/* Outer orange background */}
-        <div className="relative rounded-3xl border border-border bg-gradient-to-r from-amber-300/70 via-amber-100/40 to-bg overflow-hidden p-4 md:p-6">
+        <Topthree topThree={topThree} />
 
-          {/* Inner card */}
-          <div className="mx-auto max-w-3xl bg-bg-light/90 border border-border rounded-2xl p-6 md:p-8 shadow-lg">
-
-            {/* Card Title */}
-            <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
-              Leader Board
-            </h2>
-
-            {/* Top 3 component */}
-            <Topthree users={topThree} />
-
-            {/* Creative list instead of Excel-style table */}
-            <div className="mt-6 max-h-64 overflow-y-auto pr-1 space-y-3">
-              {sortedUsers.map((user, index) => (
+        {/* Creative list instead of Excel-style table */}
+        <div className="mt-6 max-h-64 overflow-y-auto pr-1 space-y-3">
+          {sortedUsers.map((user, index) => (
+            <div
+              key={user.name}
+              className="flex items-center justify-between rounded-xl border border-border-muted bg-bg-light px-4 py-3 md:px-5 md:py-4 shadow-sm hover:shadow-lg hover:border-border transition-all"
+            >
+              {/* Left: rank + name */}
+              <div className="flex items-center gap-3 md:gap-4">
                 <div
-                  key={user.name}
-                  className="flex items-center justify-between rounded-xl border border-border/60 bg-bg/70 px-4 py-3 md:px-5 md:py-4 shadow-sm hover:shadow-lg hover:border-primary/70 transition-all"
+                  className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold
+                    ${
+                      index === 0
+                        ? "bg-gradient-to-br from-amber-200 to-amber-400 text-bg-dark"
+                        : index === 1
+                        ? "bg-gradient-to-br from-slate-300 to-slate-500 text-bg-dark"
+                        : "bg-gradient-to-br from-amber-400 to-amber-600 text-bg-dark"
+                    }
+                  `}
                 >
-                  {/* Left: rank + name */}
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <div
-                      className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold
-                        ${
-                          index === 0
-                            ? "bg-gradient-to-br from-amber-400 to-amber-600 text-bg-dark"
-                            : index === 1
-                            ? "bg-gradient-to-br from-slate-300 to-slate-500 text-bg-dark"
-                            : "bg-gradient-to-br from-amber-200 to-amber-400 text-bg-dark"
-                        }
-                      `}
-                    >
-                      #{index + 1}
-                    </div>
-
-                    <div>
-                      <p className="text-sm md:text-base font-semibold">
-                        {user.name}
-                      </p>
-                      <p className="text-[11px] md:text-xs text-text-muted">
-                        Top route contributor
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right: points badge */}
-                  <div className="flex items-center gap-2">
-                    <span className="hidden text-xs text-text-muted md:inline">
-                      Points
-                    </span>
-                    <span className="rounded-full bg-bg-light/70 px-3 py-1 text-xs md:text-sm font-semibold text-amber-400 border border-border/60">
-                      {user.score} pts
-                    </span>
-                  </div>
+                  #{index + 1}
                 </div>
-              ))}
-            </div>
 
-          </div>
+                <div>
+                  <p className="text-sm md:text-base font-semibold">
+                    {user.firstName + " " + user.lastName}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: points badge */}
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-bg-light/70 px-3 py-1 text-xs md:text-sm font-semibold text-amber-400 border border-border/60">
+                  {user.score}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
+
     </div>
   );
 }
