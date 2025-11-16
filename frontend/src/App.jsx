@@ -20,6 +20,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
+        <Route path="leaderboard" element={<Leaderboard/>}/> 
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
         </Route>
