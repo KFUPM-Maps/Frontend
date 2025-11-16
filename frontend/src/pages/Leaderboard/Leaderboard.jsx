@@ -34,14 +34,12 @@ export default function Leaderboard() {
 
         <Topthree topThree={topThree} />
 
-        {/* Creative list instead of Excel-style table */}
         <div className="mt-6 max-h-64 w-3/4 md:1/2 overflow-y-auto pr-1 space-y-3">
           {sortedUsers.map((user, index) => (
             <div
               key={user.name}
               className="flex items-center justify-between rounded-xl border border-border-muted bg-bg-light px-4 py-3 md:px-5 md:py-4 shadow-sm hover:shadow-lg hover:border-border transition-all"
             >
-              {/* Left: rank + name */}
               <div className="flex items-center gap-3 md:gap-4">
                 <div
                   className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold
@@ -63,8 +61,6 @@ export default function Leaderboard() {
                   </p>
                 </div>
               </div>
-
-              {/* Right: points badge */}
               <div className="flex items-center gap-2">
                 <span className="rounded-full bg-bg-light/70 px-3 py-1 text-xs md:text-sm font-semibold text-amber-400 border border-border/60">
                   {user.score}

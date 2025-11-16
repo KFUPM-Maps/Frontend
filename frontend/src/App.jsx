@@ -26,7 +26,7 @@ function App() {
           {/* Protected routes go here */}
           <Route path="myaccount" element={<Myaccount />} />
         </Route>
-        <Route path="*" element={<h1 className="font-extrabold text-danger m-2 flex justify-center items-center">404 Not Found</h1>} />
+        <Route path="*" element={<div className="flex justify-center items-center h-full" ><h1 className="font-extrabold text-danger m-2">404 Not Found</h1></div>} />
       </Route>
     </Routes>
   );
