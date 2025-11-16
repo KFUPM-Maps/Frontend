@@ -12,7 +12,7 @@ export default function Navbar() {
     { name: "My Routes", href: "/myroutes", show: user.user },
     { name: "Manage Routes", href: "/manageroutes",  show: user.user && user.user.type === "admin"},
     { name: "Leaderboard", href: "/leaderboard",  show: true},
-    { name: "My Account", href: "/myaccount",  show: user.user},
+    { name: "My Account", href: "/Myaccount",  show: user.user},
     { name: "Sign up", href: "/signup", show: !user.user },
     { name: "Log in", href: "/login", show: !user.user },
     { name: "Logout", href: "/logout", show: user.user },
