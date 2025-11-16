@@ -4,7 +4,8 @@
       "id": 1,
       "user": {
         "email": "yousef@example.com",
-        "name": "Yousef Abdelaziz",
+        "firstName": "Yousef",
+        "lastName": "Abdelaziz",
         "type": "admin"
       },
       "accessToken": "123456"

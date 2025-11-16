@@ -3,7 +3,7 @@ import { AuthContext } from "../../AuthLogic/AuthContext";
 import { usePopup } from "../../components/Popup/PopupContext";
 
 export default function Myaccount() {
-  const { user } = useContext(AuthContext) ?? {};
+  const { user } = useContext(AuthContext);
   const popup = usePopup();
 
   // Prefill from context if available
@@ -37,11 +37,11 @@ export default function Myaccount() {
   };
 
   return (
-    <div className="w-full h-full flex items-start justify-center p-6 md:p-10 bg-bg-dark text-text">
-      <section className="w-full md:max-w-xl bg-bg border border-border rounded-2xl shadow p-6 md:p-8">
-        <h1 className="text-3xl font-semibold mb-6 text-center">My Account</h1>
+    <div className="flex items-center justify-center h-full">
+      <section className="w-3/4 md:max-w-xl bg-linear-to-t from-bg to-bg-light border border-border rounded-2xl shadow p-6 md:p-8">
+        <h1 className="text-3xl mb-6 text-center">My Account</h1>
 
-        <div className="flex items-center gap-4 mb-8 justify-center">
+        <div className="flex self-start items-center gap-4 mb-8">
           <div className="w-16 h-16 rounded-full bg-bg-light border border-border flex items-center justify-center overflow-hidden">
             {photoUrl ? (
               <img

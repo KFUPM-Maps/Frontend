@@ -4,8 +4,14 @@ import { refreshTokenRequest } from "../api/auth";
 import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [accessToken, setAccessToken] = useState(null);
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [accessToken, setAccessToken] = useState(() => {
+    const saved = localStorage.getItem("accessToken");
+    return saved ? JSON.parse(saved) : null;
+  });
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -20,17 +26,6 @@ export const AuthProvider = ({ children }) => {
   //   };
   //   tryRefresh();
   // }, []);
-
-  useEffect(()=>{
-    const storageUser = localStorage.getItem("user")
-    const storageToken = localStorage.getItem("accessToken")
-    if(storageUser){
-      setUser(JSON.parse(storageUser))
-    }
-    if(storageToken){
-      setAccessToken(storageToken)
-    }
-  }, [])
 
   const login = (user, token) => {
     setUser(user);
