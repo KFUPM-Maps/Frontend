@@ -24,7 +24,7 @@ export default function Navbar() {
       <div
         className={`
             fixed top-0 left-0 h-screen bg-bg text-text transition-all duration-300 z-40
-            ${isOpen ? "translate-x-0" : "-translate-x-full"} w-full
+            ${isOpen ? "translate-x-0" : "translate-x-full"} w-full
             md:translate-x-0 md:w-64 md:static md:flex
         `}
       >
@@ -44,7 +44,10 @@ export default function Navbar() {
               <NavLink
                 key={link.name}
                 to={link.href}
-                className="hover:text-text-muted text-lg"
+                className={({ isActive }) =>
+                  `hover:text-text-muted text-lg ${
+                    isActive ? "underline text-primary" : "text-text"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

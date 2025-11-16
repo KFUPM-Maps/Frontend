@@ -15,15 +15,15 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="logout" element={<Logout />} />
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="logout" element={<Logout />} />
         </Route>
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
         </Route>
-        <Route path="*" element={<h1 className="font-extrabold text-red-800 m-2 flex justify-center items-center">404 Not Found</h1>} />
+        <Route path="*" element={<h1 className="font-extrabold text-danger m-2 flex justify-center items-center">404 Not Found</h1>} />
       </Route>
     </Routes>
   );

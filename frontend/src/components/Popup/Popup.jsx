@@ -16,7 +16,7 @@ export default function Popup({
 
   return (
     <div className={`
-      fixed top-4 left-4 px-4 py-3 rounded-lg shadow-lg text-white
+      fixed top-1 left-1/2 px-4 py-3 rounded-lg shadow-lg text-white
       ${type === "success" ? "bg-success" : ""}
       ${type === "error" ? "bg-danger" : ""}
       ${type === "confirm" ? "bg-info" : ""}
