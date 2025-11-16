@@ -26,16 +26,16 @@ export default function Leaderboard() {
 
   return (
     <div className="h-full w-full flex justify-center items-center text-text">
-      <div className="w-10/12 border  bg-linear-to-t from-bg to-bg-light border-border rounded-2xl p-6 md:p-8 shadow-lg">
+      <div className="w-10/12 border flex flex-col items-center bg-linear-to-t from-bg to-bg-light border-border rounded-2xl p-6 md:p-8 shadow-lg">
 
-        <h2 className="text-xl md:text-2xl font-semibold text-center mb-6">
+        <h2 className="text-3xl md:text-2xl font-semibold text-center mb-6">
           Leaderboard
         </h2>
 
         <Topthree topThree={topThree} />
 
         {/* Creative list instead of Excel-style table */}
-        <div className="mt-6 max-h-64 overflow-y-auto pr-1 space-y-3">
+        <div className="mt-6 max-h-64 w-3/4 md:1/2 overflow-y-auto pr-1 space-y-3">
           {sortedUsers.map((user, index) => (
             <div
               key={user.name}
