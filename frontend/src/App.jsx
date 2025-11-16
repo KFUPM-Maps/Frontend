@@ -7,6 +7,8 @@ import ProtectedRoute from "./AuthLogic/ProtectedRouteLayout.jsx";
 import Login from "./pages/Auth/Login/Login.jsx";
 import Signup from "./pages/Auth/Signup/Signup.jsx";
 import Logout from "./pages/Auth/Logout.jsx";
+import Leaderboard from "./pages/Leaderboard/Leaderboard.jsx";
+import Myaccount from "./pages/Myaccount/Myaccount.jsx";
 import "./styles.css";
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path="leaderboard" element={<Leaderboard/>}/> 
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
+          <Route path="myaccount" element={<Myaccount />} />
         </Route>
         <Route path="*" element={<h1 className="font-extrabold text-danger m-2 flex justify-center items-center">404 Not Found</h1>} />
       </Route>
