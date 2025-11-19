@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getRoutesRequest } from "../../api/routes";
 import { usePopup } from "../../components/Popup/PopupContext";
 import {AuthContext} from "../../AuthLogic/AuthContext"
@@ -8,11 +8,10 @@ import Likes from "../../components/Routes/Stars";
 export default function RouteList({firstBuilding, secondBuilding}){
     const [routes, setRoutes] = useState([]);
     const popup = usePopup();
-    const user = useContext(AuthContext)
 
     useEffect(()=>{
         const fetchData = async ()=>{
-            let res = await getRoutesRequest();
+            let res = await getRoutesRequest(firstBuilding, secondBuilding);
             if(res.success){
                 setRoutes(res.data)
             }

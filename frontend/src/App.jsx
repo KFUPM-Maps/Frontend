@@ -10,6 +10,9 @@ import Logout from "./pages/Auth/Logout.jsx";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.jsx";
 import Myaccount from "./pages/Myaccount/Myaccount.jsx";
 import "./styles.css";
+import RouteLayout from "./pages/Routes/RouteLayout.jsx";
+import MyRoutes from "./pages/Routes/MyRoutes/MyRoutes.jsx";
+import ManageRoutes from "./pages/Routes/ManageRoutes/ManageRoutes.jsx";
 function App() {
   //useAxiosSetup();
   return (
@@ -25,6 +28,10 @@ function App() {
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
           <Route path="myaccount" element={<Myaccount />} />
+          <Route element={<RouteLayout/>}>
+            <Route path="myroutes" element={<MyRoutes/>}/>
+            <Route path="manageroutes" element={<ManageRoutes/>}/>
+          </Route>
         </Route>
         <Route path="*" element={<div className="flex justify-center items-center h-full" ><h1 className="font-extrabold text-danger m-2">404 Not Found</h1></div>} />
       </Route>

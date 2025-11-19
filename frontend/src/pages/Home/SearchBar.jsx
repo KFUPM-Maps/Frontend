@@ -39,7 +39,7 @@ export default function SearchBar({firstBuilding, setFirstBuilding, secondBuildi
     ];
 
     return(
-        <div className="flex gap-2 border-border border-t-highlight border-1 items-center w-10/12 md:w-1/2 absolute left-1/2 -translate-x-1/2 mt-5 bg-bg-light rounded-2xl p-2 px-4">
+        <div className="flex gap-2 border-border border-t-highlight border items-center w-10/12 md:w-1/2 absolute left-1/2 -translate-x-1/2 mt-5 bg-bg-light rounded-2xl p-2 px-4">
             <button className="flex justify-center items-center">
                 <span className="material-icons">search</span>
             </button>

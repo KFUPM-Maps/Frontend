@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "user": {
         "email": "yousef@example.com",
         "firstName": "Yousef",
@@ -12,7 +12,7 @@
       "accessToken": "123456"
     },
     {
-      "id": 2,
+      "id": "2",
       "user": {
         "email": "Khalid@example.com",
         "name": "Khalid Ahmed",
@@ -22,9 +22,9 @@
       "accessToken": "19797149374"
     }
   ],
-  "routes": [
+   "routes": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Corniche Morning Run",
       "user": {
         "firstName": "Yousef",
@@ -37,20 +37,7 @@
       "status": "approved"
     },
     {
-      "id": 2,
-      "title": "Old Town Shortcut Path",
-      "user": {
-        "firstName": "Khalid",
-        "lastName": "Ahmad",
-        "picture": "https://picsum.photos/200?random=2"
-      },
-      "lastUpdated": "10/10/24",
-      "starsCount": 35,
-      "islikedByUser": false,
-      "status": "pending"
-    },
-    {
-      "id": 3,
+      "id": "3",
       "title": "University to Mall Fast Route",
       "user": {
         "firstName": "Sara",
@@ -63,7 +50,7 @@
       "status": "rejected"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Sunset Desert Trail",
       "user": {
         "firstName": "Abdullah",
@@ -76,7 +63,7 @@
       "status": "approved"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Campus East Gate Cycle Route",
       "user": {
         "firstName": "Lama",
@@ -89,7 +76,7 @@
       "status": "pending"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "The 5-Minute Commute Route",
       "user": {
         "firstName": "Omar",
@@ -102,7 +89,7 @@
       "status": "approved"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Beginner Hiking Loop",
       "user": {
         "firstName": "Reema",
@@ -115,7 +102,7 @@
       "status": "rejected"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Beachside Walking Route",
       "user": {
         "firstName": "Faisal",
@@ -128,7 +115,7 @@
       "status": "approved"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Hilltop Viewpoint Trek",
       "user": {
         "firstName": "Huda",
@@ -141,7 +128,7 @@
       "status": "pending"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Fastest Route to Work",
       "user": {
         "firstName": "Majid",
@@ -153,6 +140,37 @@
       "islikedByUser": false,
       "status": "approved"
     }
-  ]
+  ],
 
+  "route": [
+      {
+      "id": "10",
+      "title": "Fastest Route to Work",
+      "user": {
+        "firstName": "Majid",
+        "lastName": "Saleh",
+        "picture": "https://picsum.photos/200?random=10"
+      },
+      "steps" :{
+        "1":{
+          "photo" : "https://picsum.photos/200?random=1",
+          "caption" : "go toward the end of the road"
+        },
+        "2":{
+          "photo" : "https://picsum.photos/200?random=2",
+          "caption" : "turn left after the ladder"
+        },
+        "3":{
+          "photo" : "https://picsum.photos/200?random=2",
+          "caption" : "go up the elevator"
+        }
+      }
+      ,
+      "lastUpdated": "08/11/24",
+      "starsCount": 75,
+      "islikedByUser": false,
+      "status": "approved"
+    }
+
+  ]
 }

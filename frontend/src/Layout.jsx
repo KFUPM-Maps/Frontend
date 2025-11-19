@@ -1,4 +1,3 @@
-// components/Layout.jsx
 import { Outlet } from "react-router";
 import Navbar from "./components/Navbar.jsx";
 import PopupProvider from "./components/Popup/PopupProvider.jsx";

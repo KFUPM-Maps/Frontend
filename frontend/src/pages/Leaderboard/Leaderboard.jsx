@@ -45,10 +45,10 @@ export default function Leaderboard() {
                   className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold
                     ${
                       index === 0
-                        ? "bg-gradient-to-br from-amber-200 to-amber-400 text-bg-dark"
+                        ? "bg-linear-to-br from-amber-200 to-amber-400 text-bg-dark"
                         : index === 1
-                        ? "bg-gradient-to-br from-slate-300 to-slate-500 text-bg-dark"
-                        : "bg-gradient-to-br from-amber-400 to-amber-600 text-bg-dark"
+                        ? "bg-linear-to-br from-slate-300 to-slate-500 text-bg-dark"
+                        : "bg-linear-to-br from-amber-400 to-amber-600 text-bg-dark"
                     }
                   `}
                 >

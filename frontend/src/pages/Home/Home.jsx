@@ -37,7 +37,7 @@ export default function Home() {
       buildingPath?.classList.add("fill-gray-500", "stroke-secondary", "stroke-2");
       buildingText?.classList.add("fill-secondary", "stroke-secondary");      
 
-    }, [secondBuilding, secondBuilding])
+    }, [firstBuilding, secondBuilding])
 
 
 
