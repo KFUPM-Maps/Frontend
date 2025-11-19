@@ -85,3 +85,7 @@
   --color-success: oklch(0.75 0.10 160);
   --color-info: oklch(0.78 0.12 230); */
 }
+
+.select__control {
+  @apply bg-bg rounded border-border p-1 text-center flex-1 min-w-0;
+}

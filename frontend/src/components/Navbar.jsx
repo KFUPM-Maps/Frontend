@@ -60,7 +60,7 @@ export default function Navbar() {
 
       <button
         onClick={toggleNavbar}
-        className="md:hidden fixed top-4 right-4 z-50 text-text"
+        className="md:hidden fixed right-4 mt-5 pt-2 z-50 flex items-center text-text"
       >
         <span
           className="material-symbols-rounded text-9xl"
