@@ -6,7 +6,8 @@
         "email": "yousef@example.com",
         "firstName": "Yousef",
         "lastName": "Abdelaziz",
-        "type": "admin"
+        "type": "admin",
+        "picture": "https://picsum.photos/200?random=1"
       },
       "accessToken": "123456"
     },
@@ -15,23 +16,143 @@
       "user": {
         "email": "Khalid@example.com",
         "name": "Khalid Ahmed",
-        "type": "student"
+        "type": "student",
+        "picture": "https://picsum.photos/200?random=2"
       },
       "accessToken": "19797149374"
     }
   ],
-  "posts": [
+  "routes": [
     {
       "id": 1,
-      "title": "Welcome Post",
-      "content": "This is your first post!",
-      "authorId": 1
+      "title": "Corniche Morning Run",
+      "user": {
+        "firstName": "Yousef",
+        "lastName": "Abdelaziz",
+        "picture": "https://picsum.photos/200?random=1"
+      },
+      "lastUpdated": "12/11/24",
+      "starsCount": 50,
+      "islikedByUser": true,
+      "status": "approved"
     },
     {
       "id": 2,
-      "title": "Another Post",
-      "content": "Testing json-server with JWT!",
-      "authorId": 2
+      "title": "Old Town Shortcut Path",
+      "user": {
+        "firstName": "Khalid",
+        "lastName": "Ahmad",
+        "picture": "https://picsum.photos/200?random=2"
+      },
+      "lastUpdated": "10/10/24",
+      "starsCount": 35,
+      "islikedByUser": false,
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "title": "University to Mall Fast Route",
+      "user": {
+        "firstName": "Sara",
+        "lastName": "Almalki",
+        "picture": "https://picsum.photos/200?random=3"
+      },
+      "lastUpdated": "01/11/24",
+      "starsCount": 27,
+      "islikedByUser": false,
+      "status": "rejected"
+    },
+    {
+      "id": 4,
+      "title": "Sunset Desert Trail",
+      "user": {
+        "firstName": "Abdullah",
+        "lastName": "Saeed",
+        "picture": "https://picsum.photos/200?random=4"
+      },
+      "lastUpdated": "15/10/24",
+      "starsCount": 62,
+      "islikedByUser": true,
+      "status": "approved"
+    },
+    {
+      "id": 5,
+      "title": "Campus East Gate Cycle Route",
+      "user": {
+        "firstName": "Lama",
+        "lastName": "Othman",
+        "picture": "https://picsum.photos/200?random=5"
+      },
+      "lastUpdated": "09/11/24",
+      "starsCount": 18,
+      "islikedByUser": false,
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "title": "The 5-Minute Commute Route",
+      "user": {
+        "firstName": "Omar",
+        "lastName": "Badawi",
+        "picture": "https://picsum.photos/200?random=6"
+      },
+      "lastUpdated": "05/11/24",
+      "starsCount": 47,
+      "islikedByUser": true,
+      "status": "approved"
+    },
+    {
+      "id": 7,
+      "title": "Beginner Hiking Loop",
+      "user": {
+        "firstName": "Reema",
+        "lastName": "Hassan",
+        "picture": "https://picsum.photos/200?random=7"
+      },
+      "lastUpdated": "29/10/24",
+      "starsCount": 53,
+      "islikedByUser": false,
+      "status": "rejected"
+    },
+    {
+      "id": 8,
+      "title": "Beachside Walking Route",
+      "user": {
+        "firstName": "Faisal",
+        "lastName": "Alqahtani",
+        "picture": "https://picsum.photos/200?random=8"
+      },
+      "lastUpdated": "03/11/24",
+      "starsCount": 40,
+      "islikedByUser": false,
+      "status": "approved"
+    },
+    {
+      "id": 9,
+      "title": "Hilltop Viewpoint Trek",
+      "user": {
+        "firstName": "Huda",
+        "lastName": "Ali",
+        "picture": "https://picsum.photos/200?random=9"
+      },
+      "lastUpdated": "25/10/24",
+      "starsCount": 31,
+      "islikedByUser": true,
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "title": "Fastest Route to Work",
+      "user": {
+        "firstName": "Majid",
+        "lastName": "Saleh",
+        "picture": "https://picsum.photos/200?random=10"
+      },
+      "lastUpdated": "08/11/24",
+      "starsCount": 75,
+      "islikedByUser": false,
+      "status": "approved"
     }
   ]
+
 }

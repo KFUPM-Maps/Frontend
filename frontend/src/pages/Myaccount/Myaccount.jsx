@@ -9,7 +9,7 @@ export default function Myaccount() {
   // Prefill from context if available
   const [firstName, setFirstName] = useState(user?.firstName ?? "");
   const [lastName, setLastName] = useState(user?.lastName ?? "");
-  const [photoUrl, setPhotoUrl] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(user?.picture ?? "");
   const fileInputRef = useRef(null);
 
   useEffect(() => {

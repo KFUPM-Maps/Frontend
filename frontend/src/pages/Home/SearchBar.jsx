@@ -71,6 +71,17 @@ export default function SearchBar({firstBuilding, setFirstBuilding, secondBuildi
                     {buildingNames.map((b) => <option key={b} value={b} />)}
                 </datalist>
             </div>
+            {
+                (firstBuilding && secondBuilding) &&
+                <button className="flex items-center justify-center">
+                    <span
+                    className="material-symbols-rounded text-9xl"
+                    onClick={()=> {setFirstBuilding(""); setSecondBuilding("")}}
+                    >
+                        close
+                    </span>
+                </button>
+            }
 
         </div>
     )

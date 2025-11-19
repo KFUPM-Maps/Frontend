@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Map from './Map';
 import SearchBar from './SearchBar';
+import RouteList from './RouteList';
 
 export default function Home() {
     const [firstBuilding, setFirstBuilding] = useState("")
@@ -55,8 +56,6 @@ export default function Home() {
 
       if (!buildingId) return;
 
-      console.log("Selected building:", buildingId);
-
       const buildingPath = document.getElementById(buildingId);
       const buildingText = Array.from(document.querySelectorAll("text")).find(
         t => t.textContent.trim() === buildingId
@@ -97,6 +96,10 @@ export default function Home() {
         className="w-full h-full bg-linear-to-t from-bg-dark to-bg"
         handelClick={handelBuildingSelection}
       />
+      {
+        (firstBuilding && secondBuilding) &&
+        <RouteList firstBuilding={firstBuilding} secondBuilding={secondBuilding}/>
+      }
     </div>
     );
   }
