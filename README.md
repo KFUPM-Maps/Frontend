@@ -7,7 +7,7 @@
 ---
 
 ### Installation
-##important##
+## important
 please make sure to run the mock backend or the prototype will not run properly
 ```bash
 # 1 Navigate to the frontend folder
