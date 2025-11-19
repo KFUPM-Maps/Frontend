@@ -45,8 +45,8 @@ This improves way-finding, saves time, and offers a realistic, stress-free navig
 
 | Layer | Technology |
 |-------|-------------|
-| **Frontend** | React (Vite) + TailwindCSS (using `@theme` color tokens) |
-| **Popup System** | Custom React Context for success/error/confirm messages |
+| **Frontend** | React (Vite) + TailwindCSS |
+| **Handling api request** | axios |
 | **Mock Backend (for frontend phase)** | `json-server` with `db.json` |
 | **Routing** | `react-router` |
 | **State / Auth** | React Context API (AuthContext) + localStorage tokens |
