@@ -6,6 +6,25 @@
 
 ---
 
+### Installation
+## important
+please make sure to run the mock backend or the prototype will not run properly
+```bash
+# 1 Navigate to the frontend folder
+cd frontend
+
+# 2 Install dependencies
+npm install
+
+# 3 run 
+npm run dev 
+
+# 4 run the server (in a separate terminal)
+npm run server
+```
+
+--
+
 ## 📖 Project Description
 
 **KFUPM Maps** is a web-based indoor navigation application designed for the KFUPM campus.  
@@ -45,8 +64,8 @@ This improves way-finding, saves time, and offers a realistic, stress-free navig
 
 | Layer | Technology |
 |-------|-------------|
-| **Frontend** | React (Vite) + TailwindCSS (using `@theme` color tokens) |
-| **Popup System** | Custom React Context for success/error/confirm messages |
+| **Frontend** | React (Vite) + TailwindCSS |
+| **Handling api request** | axios |
 | **Mock Backend (for frontend phase)** | `json-server` with `db.json` |
 | **Routing** | `react-router` |
 | **State / Auth** | React Context API (AuthContext) + localStorage tokens |
@@ -71,17 +90,3 @@ This improves way-finding, saves time, and offers a realistic, stress-free navig
 ### Prerequisites
 - Node .js v18 or newer
 - npm (v9 +)
-
-### Installation
-```bash
-# 1 Navigate to the frontend folder
-cd frontend
-
-# 2 Install dependencies
-npm install
-
-# 3 run 
-npm run dev 
-
-# 4 run the server (in a separate terminal)
-npm run server
