@@ -3,13 +3,14 @@ import api from "./api"
 export const getRoutesRequest = async (firstBuilding, secondBuilding) =>{
     try{
         const res = await api.get(
-            "/routes",
-            { 
-                params:{
-                    firstBuilding,
-                    secondBuilding
-                }
-            }
+            "/routes"
+            //,
+            // { 
+            //     params:{
+            //         firstBuilding,
+            //         secondBuilding
+            //     }
+            // }
         );
         return { success: true, data: res.data };
     }
@@ -31,6 +32,21 @@ export const getAllRoutes = async (type) =>{
         return {
         success: false,
         error: error.response?.data?.message || error.message || "couldn't get the requested routes"
+        };
+    }
+}
+
+export const getRouteRequest = async (id) =>{
+    try{
+        const res = await api.get(
+            `/routes/${id}`
+        );
+        return { success: true, data: res.data };
+    }
+    catch (error) {
+        return {
+        success: false,
+        error: error.response?.data?.message || error.message || "couldn't get the requested route"
         };
     }
 }

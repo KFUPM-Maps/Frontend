@@ -4,9 +4,11 @@ import { usePopup } from "../../components/Popup/PopupContext";
 import {AuthContext} from "../../AuthLogic/AuthContext"
 import RouteItem from "../../components/Routes/RouteItem";
 import Likes from "../../components/Routes/Stars";
+import { useNavigate } from "react-router";
 
 export default function RouteList({firstBuilding, secondBuilding}){
     const [routes, setRoutes] = useState([]);
+    const navigate = useNavigate();
     const popup = usePopup();
 
     useEffect(()=>{
@@ -22,6 +24,11 @@ export default function RouteList({firstBuilding, secondBuilding}){
         fetchData()
     }, [firstBuilding, secondBuilding])
 
+    const handelRouteClick = (e)=>{
+        let id = e.target.closest('[id*="route"]').id.replace("route", "")
+        navigate("viewroute/" + id)
+    }
+
     const sortedRoutes = routes.sort((a, b) => b.starsCount - a.starsCount)
 
     return (
@@ -34,7 +41,7 @@ export default function RouteList({firstBuilding, secondBuilding}){
         </div>
         <div className="flex flex-col gap-2 flex-1 overflow-y-auto">
             {sortedRoutes.map((r)=>
-            <RouteItem key={r.id} route={r}>
+            <RouteItem key={r.id} route={r} handelClick={handelRouteClick}>
                 <Likes route={r}/>
             </RouteItem>
             )}

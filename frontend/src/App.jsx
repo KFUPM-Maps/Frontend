@@ -13,6 +13,7 @@ import "./styles.css";
 import RouteLayout from "./pages/Routes/RouteLayout.jsx";
 import MyRoutes from "./pages/Routes/MyRoutes/MyRoutes.jsx";
 import ManageRoutes from "./pages/Routes/ManageRoutes/ManageRoutes.jsx";
+import ViewRoute from "./pages/ViewRoute/ViewRoute.jsx";
 function App() {
   //useAxiosSetup();
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="signup" element={<Signup />} />
         </Route>
         <Route path="leaderboard" element={<Leaderboard/>}/> 
+        <Route path="viewroute/:id" element = {<ViewRoute/>}/>
         <Route element= {<ProtectedRoute />}>
           {/* Protected routes go here */}
           <Route path="myaccount" element={<Myaccount />} />

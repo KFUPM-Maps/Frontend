@@ -1,8 +1,8 @@
 
 
-export default function RouteItem({route, children}){
+export default function RouteItem({route, handelClick, children}){
     return(
-    <div key={route.id} id={"route" + route.id} className="flex flex-col border border-border bg-bg-light rounded p-2">
+    <div key={route.id} onClick={handelClick} id={"route" + route.id} className="flex flex-col border border-border bg-bg-light rounded p-2">
         <div className="flex justify-between">
             <h1 className="text-xl md:text-2xl">{route.title}</h1>
             <div className="flex gap-2 items-center">
