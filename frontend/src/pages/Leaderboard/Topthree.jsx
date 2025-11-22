@@ -8,7 +8,7 @@ export default function Topthree({topThree}) {
   return (
     <div className="mb-6 flex items-end justify-center gap-6 text-center">
       {topThree.map((user, index) => (
-        <div key={user.place} className="flex flex-col items-center text-sm">
+        <div key={user.firstName + user.lastName} className="flex flex-col items-center text-sm">
           <div
             className={`flex items-center justify-center rounded-full bg-bg
             ${

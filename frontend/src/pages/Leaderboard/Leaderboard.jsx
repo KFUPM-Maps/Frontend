@@ -37,7 +37,7 @@ export default function Leaderboard() {
         <div className="mt-6 max-h-64 w-3/4 md:1/2 overflow-y-auto pr-1 space-y-3">
           {sortedUsers.map((user, index) => (
             <div
-              key={user.name}
+              key={user.firstName + user.lastName}
               className="flex items-center justify-between rounded-xl border border-border-muted bg-bg-light px-4 py-3 md:px-5 md:py-4 shadow-sm hover:shadow-lg hover:border-border transition-all"
             >
               <div className="flex items-center gap-3 md:gap-4">

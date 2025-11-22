@@ -31,20 +31,19 @@
       "user": {
         "firstName": "Majid",
         "lastName": "Saleh",
-        "picture": "https://picsum.photos/200?random=21"
+        "picture": "https://loremflickr.com/200/200/nature?random=1"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=301", "caption": "walk straight until you see the tall window" },
-        "2": { "photo": "https://picsum.photos/200?random=302", "caption": "turn left near the small staircase" },
-        "3": { "photo": "https://picsum.photos/200?random=303", "caption": "continue forward through the narrow hall" },
-        "4": { "photo": "https://picsum.photos/200?random=304", "caption": "take the elevator to the second floor" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=2", "caption": "walk straight until you see the tall window" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=3", "caption": "turn left near the small staircase" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=4", "caption": "continue forward through the narrow hall" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=5", "caption": "take the elevator to the second floor" }
       },
       "lastUpdated": "08/11/24",
       "starsCount": 75,
       "islikedByUser": false,
-      "status": "approved"
+      "status": "rejected"
     },
-
     {
       "id": "22",
       "title": "Quick Route Between Buildings",
@@ -53,20 +52,19 @@
       "user": {
         "firstName": "Sara",
         "lastName": "AlHarbi",
-        "picture": "https://picsum.photos/200?random=22"
+        "picture": "https://loremflickr.com/200/200/nature?random=6"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=305", "caption": "walk down the open courtyard" },
-        "2": { "photo": "https://picsum.photos/200?random=306", "caption": "turn right beside the benches" },
-        "3": { "photo": "https://picsum.photos/200?random=307", "caption": "go around the construction barrier" },
-        "4": { "photo": "https://picsum.photos/200?random=308", "caption": "enter the hallway on your left" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=7", "caption": "walk down the open courtyard" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=8", "caption": "turn right beside the benches" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=9", "caption": "go around the construction barrier" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=10", "caption": "enter the hallway on your left" }
       },
       "lastUpdated": "10/11/24",
       "starsCount": 42,
       "islikedByUser": false,
-      "status": "approved"
+      "status": "pending"
     },
-
     {
       "id": "23",
       "title": "Path to Study Area",
@@ -75,21 +73,20 @@
       "user": {
         "firstName": "Omar",
         "lastName": "Khaled",
-        "picture": "https://picsum.photos/200?random=23"
+        "picture": "https://loremflickr.com/200/200/nature?random=11"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=309", "caption": "walk across the bridge between buildings" },
-        "2": { "photo": "https://picsum.photos/200?random=310", "caption": "take the spiral staircase down" },
-        "3": { "photo": "https://picsum.photos/200?random=311", "caption": "turn right at the vending machines" },
-        "4": { "photo": "https://picsum.photos/200?random=312", "caption": "follow the hallway until the blue door" },
-        "5": { "photo": "https://picsum.photos/200?random=313", "caption": "exit into the garden and walk straight" }
+        "1": { "photo": "https l oremflickr.com/200/200/nature?random=12", "caption": "walk across the bridge between buildings" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=13", "caption": "take the spiral staircase down" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=14", "caption": "turn right at the vending machines" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=15", "caption": "follow the hallway until the blue door" },
+        "5": { "photo": "https://loremflickr.com/200/200/nature?random=16", "caption": "exit into the garden and walk straight" }
       },
       "lastUpdated": "12/11/24",
       "starsCount": 31,
       "islikedByUser": true,
-      "status": "approved"
+      "status": "rejected"
     },
-
     {
       "id": "24",
       "title": "Shortest Path to Mall",
@@ -98,20 +95,19 @@
       "user": {
         "firstName": "Fatimah",
         "lastName": "Ahmad",
-        "picture": "https://picsum.photos/200?random=24"
+        "picture": "https://loremflickr.com/200/200/nature?random=17"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=314", "caption": "head toward the glass hallway" },
-        "2": { "photo": "https://picsum.photos/200?random=315", "caption": "walk straight through the open plaza" },
-        "3": { "photo": "https://picsum.photos/200?random=316", "caption": "turn slightly right near the palm trees" },
-        "4": { "photo": "https://picsum.photos/200?random=317", "caption": "enter the mall through the main gate" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=18", "caption": "head toward the glass hallway" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=19", "caption": "walk straight through the open plaza" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=20", "caption": "turn slightly right near the palm trees" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=21", "caption": "enter the mall through the main gate" }
       },
       "lastUpdated": "09/11/24",
       "starsCount": 98,
       "islikedByUser": false,
-      "status": "approved"
+      "status": "rejected"
     },
-
     {
       "id": "25",
       "title": "Route to B10",
@@ -120,20 +116,19 @@
       "user": {
         "firstName": "Hassan",
         "lastName": "Nasser",
-        "picture": "https://picsum.photos/200?random=25"
+        "picture": "https://loremflickr.com/200/200/nature?random=22"
       },
       "steps": {
-        "1": { "photo": "httpsum.photos/200?random=318", "caption": "walk straight toward the large palm tree" },
-        "2": { "photo": "https://picsum.photos/200?random=319", "caption": "turn left at the yellow sign" },
-        "3": { "photo": "https://picsum.photos/200?random=320", "caption": "continue until you reach the end of the ramp" },
-        "4": { "photo": "https://picsum.photos/200?random=321", "caption": "go through the glass doors" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=23", "caption": "walk straight toward the large palm tree" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=24", "caption": "turn left at the yellow sign" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=25", "caption": "continue until you reach the end of the ramp" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=26", "caption": "go through the glass doors" }
       },
       "lastUpdated": "07/11/24",
       "starsCount": 54,
       "islikedByUser": true,
-      "status": "approved"
+      "status": "pending"
     },
-
     {
       "id": "26",
       "title": "Best Route to B20",
@@ -142,20 +137,19 @@
       "user": {
         "firstName": "Noura",
         "lastName": "Ali",
-        "picture": "https://picsum.photos/200?random=26"
+        "picture": "https://loremflickr.com/200/200/nature?random=27"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=322", "caption": "walk through the narrow hallway" },
-        "2": { "photo": "https://picsum.photos/200?random=323", "caption": "go down the wide stairs" },
-        "3": { "photo": "https://picsum.photos/200?random=324", "caption": "turn right near the study area" },
-        "4": { "photo": "https://picsum.photos/200?random=325", "caption": "walk until you reach the open gate" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=28", "caption": "walk through the narrow hallway" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=29", "caption": "go down the wide stairs" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=30", "caption": "turn right near the study area" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=31", "caption": "walk until you reach the open gate" }
       },
       "lastUpdated": "03/11/24",
       "starsCount": 67,
       "islikedByUser": false,
-      "status": "approved"
+      "status": "pending"
     },
-
     {
       "id": "27",
       "title": "Easy Path to B39",
@@ -164,20 +158,19 @@
       "user": {
         "firstName": "Abdullah",
         "lastName": "Mohsen",
-        "picture": "https://picsum.photos/200?random=27"
+        "picture": "https://loremflickr.com/200/200/nature?random=32"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=326", "caption": "enter through the side entrance" },
-        "2": { "photo": "https://picsum.photos/200?random=327", "caption": "climb the small staircase" },
-        "3": { "photo": "https://picsum.photos/200?random=328", "caption": "turn left at the hallway corner" },
-        "4": { "photo": "https://picsum.photos/200?random=329", "caption": "exit through the back door" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=33", "caption": "enter through the side entrance" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=34", "caption": "climb the small staircase" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=35", "caption": "turn left at the hallway corner" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=36", "caption": "exit through the back door" }
       },
       "lastUpdated": "06/11/24",
       "starsCount": 120,
       "islikedByUser": true,
       "status": "approved"
     },
-
     {
       "id": "28",
       "title": "Fastest Route to B78",
@@ -186,20 +179,19 @@
       "user": {
         "firstName": "Reem",
         "lastName": "Yousuf",
-        "picture": "https://picsum.photos/200?random=28"
+        "picture": "https://loremflickr.com/200/200/nature?random=37"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=330", "caption": "walk toward the long corridor" },
-        "2": { "photo": "https://picsum.photos/200?random=331", "caption": "turn left past the security office" },
-        "3": { "photo": "https://picsum.photos/200?random=332", "caption": "follow the signs to building B76" },
-        "4": { "photo": "https://picsum.photos/200?random=333", "caption": "exit from the back gate" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=38", "caption": "walk toward the long corridor" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=39", "caption": "turn left past the security office" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=40", "caption": "follow the signs to building B76" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=41", "caption": "exit from the back gate" }
       },
       "lastUpdated": "04/11/24",
       "starsCount": 23,
       "islikedByUser": false,
       "status": "approved"
     },
-
     {
       "id": "29",
       "title": "Shortcut to B22",
@@ -208,20 +200,19 @@
       "user": {
         "firstName": "Talal",
         "lastName": "Sameer",
-        "picture": "https://picsum.photos/200?random=29"
+        "picture": "https://loremflickr.com/200/200/nature?random=42"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=334", "caption": "take the stairs up one floor" },
-        "2": { "photo": "https://picsum.photos/200?random=335", "caption": "turn right at the second door" },
-        "3": { "photo": "https://picsum.photos/200?random=336", "caption": "follow the blue arrows on the wall" },
-        "4": { "photo": "https://picsum.photos/200?random=337", "caption": "exit to the courtyard" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=43", "caption": "take the stairs up one floor" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=44", "caption": "turn right at the second door" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=45", "caption": "follow the blue arrows on the wall" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=46", "caption": "exit to the courtyard" }
       },
       "lastUpdated": "11/11/24",
       "starsCount": 88,
       "islikedByUser": true,
       "status": "approved"
     },
-
     {
       "id": "30",
       "title": "Route Toward B14",
@@ -230,13 +221,13 @@
       "user": {
         "firstName": "Joud",
         "lastName": "Tariq",
-        "picture": "https://picsum.photos/200?random=30"
+        "picture": "https://loremflickr.com/200/200/nature?random=47"
       },
       "steps": {
-        "1": { "photo": "https://picsum.photos/200?random=338", "caption": "walk through the outdoor pathway" },
-        "2": { "photo": "https://picsum.photos/200?random=339", "caption": "turn left near the fountain" },
-        "3": { "photo": "https://picsum.photos/200?random=340", "caption": "go straight until you reach the stairs" },
-        "4": { "photo": "https://picsum.photos/200?random=341", "caption": "continue until you reach building B14" }
+        "1": { "photo": "https://loremflickr.com/200/200/nature?random=48", "caption": "walk through the outdoor pathway" },
+        "2": { "photo": "https://loremflickr.com/200/200/nature?random=49", "caption": "turn left near the fountain" },
+        "3": { "photo": "https://loremflickr.com/200/200/nature?random=50", "caption": "go straight until you reach the stairs" },
+        "4": { "photo": "https://loremflickr.com/200/200/nature?random=51", "caption": "continue until you reach building B14" }
       },
       "lastUpdated": "05/11/24",
       "starsCount": 39,
@@ -244,5 +235,6 @@
       "status": "approved"
     }
   ]
+
 
 }

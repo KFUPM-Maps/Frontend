@@ -14,6 +14,8 @@ import RouteLayout from "./pages/Routes/RouteLayout.jsx";
 import MyRoutes from "./pages/Routes/MyRoutes/MyRoutes.jsx";
 import ManageRoutes from "./pages/Routes/ManageRoutes/ManageRoutes.jsx";
 import ViewRoute from "./pages/ViewRoute/ViewRoute.jsx";
+import ManageRoute from "./pages/ManageRoute/ManageRoute.jsx"
+
 function App() {
   //useAxiosSetup();
   return (
@@ -34,6 +36,10 @@ function App() {
             <Route path="myroutes" element={<MyRoutes/>}/>
             <Route path="manageroutes" element={<ManageRoutes/>}/>
           </Route>
+            <Route path="addroute/:firstBuilding/:secondBuilding" element={<ManageRoute updateRoute={false}/>}/>
+            <Route path="updateroute/:id" element={<ManageRoute updateRoute={true}/>}/>
+            <Route path="manageroute/:id" element={<ManageRoute manageRoute={true} />}/>
+            <Route path="previewroute" element = {<ViewRoute preview = {true}/>}/>
         </Route>
         <Route path="*" element={<div className="flex justify-center items-center h-full" ><h1 className="font-extrabold text-danger m-2">404 Not Found</h1></div>} />
       </Route>

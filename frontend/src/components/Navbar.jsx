@@ -58,17 +58,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      <button
-        onClick={toggleNavbar}
-        className="md:hidden fixed right-4 mt-5 pt-2 z-50 flex items-center text-text"
-      >
-        <span
-          className="material-symbols-rounded text-9xl"
+      <div className="w-full md:hidden p-6 flex items-center bg-bg justify-end">
+        <button
           onClick={toggleNavbar}
+          className={"flex items-center text-text justify-center " + (isOpen?"fixed right-4 mt-10 pt-2 z-50 ":"")}
         >
-          {isOpen ? "close" : "menu"}
-        </span>
-      </button>
+          <span
+            className="material-symbols-rounded text-9xl"
+            onClick={toggleNavbar}
+          >
+            {isOpen ? "close" : "menu"}
+          </span>
+        </button>
+      </div>
     </>
   );
 }

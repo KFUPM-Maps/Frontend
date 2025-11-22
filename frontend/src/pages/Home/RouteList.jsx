@@ -29,13 +29,17 @@ export default function RouteList({firstBuilding, secondBuilding}){
         navigate("viewroute/" + id)
     }
 
+    const handelAddClick = (e)=>{
+        navigate(`addroute/${firstBuilding}/${secondBuilding}`)
+    }
+
     const sortedRoutes = routes.sort((a, b) => b.starsCount - a.starsCount)
 
     return (
     <div className="absolute bottom-0 flex flex-col gap-4 left-1/2 -translate-x-1/2 bg-linear-to-t from-bg-dark to-bg border-1 border-border border-t-highlight w-10/12 h-3/4 p-4 md:w-3/4 rounded-t-xl slide-up">
         <div className="flex justify-between items-end">
             <h1 className="text-4xl">Routes</h1>
-            <button className="bg-primary hover:bg-secondary rounded py-2 px-4" onClick={()=>{}}>
+            <button className="bg-primary hover:bg-secondary rounded py-2 px-4" onClick={handelAddClick}>
                 Add Route
             </button>
         </div>

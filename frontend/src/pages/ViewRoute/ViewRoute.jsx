@@ -4,10 +4,12 @@ import { usePopup } from "../../components/Popup/PopupContext";
 import { getRouteRequest } from "../../api/routes";
 import ProgressBar from "./ProgressBar";
 import ImageCarousel from "./ImageCarousel";
+import { useLocation } from "react-router";
 
-export default function ViewRoute(){
+export default function ViewRoute({preview = false}){
     const {id} = useParams();
     const popup = usePopup();
+    const location = useLocation()
     const [route, setRoute] = useState({});
     const [images, setImages] = useState([]);
     const [caption, setCaption] = useState("");
@@ -23,7 +25,10 @@ export default function ViewRoute(){
                 popup.showError("Request failed: " + res.error);
             }
         }
-        fetchData()
+        if(!preview)
+            fetchData()
+        else
+            setRoute(location.state)
     }, [])
 
     useEffect(()=>{
@@ -33,6 +38,13 @@ export default function ViewRoute(){
     useEffect(()=>{
         setCaption(route.steps?route.steps[String(index + 1)].caption:"")
     }, [index, route])
+
+    const handelLike = (e) =>{
+        setRoute({
+            ...route,
+            islikedByUser: !route.islikedByUser
+        })
+    }
     
 
     return (
@@ -47,7 +59,12 @@ export default function ViewRoute(){
             index={index}
             setIndex={setIndex}
         />
-        <span>{caption}</span>
+            <div className="flex items-center justify-between w-full max-w-md">
+                <span>{caption}</span>
+                {!preview &&
+                <i className="material-icons hover:text-primary select-none" onClick={handelLike}>{route.islikedByUser?"star":"star_border"}</i>
+                }
+            </div>
     </div>
     )
 }

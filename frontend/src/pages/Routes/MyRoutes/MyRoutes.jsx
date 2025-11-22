@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router"
+import { useNavigate, useOutletContext } from "react-router"
 import { usePopup } from "../../../components/Popup/PopupContext"
 import { getUserRoutes } from "../../../api/routes";
 import RouteItem from "../../../components/Routes/RouteItem"
@@ -10,6 +10,7 @@ export default function MyRoutes(){
     const [routes, setRoutes] = useState([]);
     const {type} = useOutletContext();
     const popup = usePopup();
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -39,10 +40,15 @@ export default function MyRoutes(){
         deleteRequest()
     }
 
+    const handelUpdate = (e) =>{
+        let id = e.target.closest('[id*="route"]').id.replace("route", "")
+        navigate(`/updateroute/${id}`)
+    }
+
     return (
         <>
             {routes.map((r)=>{
-                return <RouteItem key={r.id} route={r}>
+                return <RouteItem key={r.id} route={r} handelClick={handelUpdate}>
                     <button className="flex items-center justify-center">
                         <span
                         className="material-symbols-rounded w-12  bg-danger rounded-2xl"

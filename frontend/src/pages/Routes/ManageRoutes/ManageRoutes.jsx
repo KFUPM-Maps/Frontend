@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { getAllRoutes } from "../../../api/routes";
 import { usePopup } from "../../../components/Popup/PopupContext";
-import { useOutletContext } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import RouteItem from "../../../components/Routes/RouteItem";
 import Stars from "../../../components/Routes/Stars";
 
 export default function ManageRoutes(){
     const [routes, setRoutes] = useState([]);
     const {type} = useOutletContext();
+    const navigate = useNavigate();
     const popup = usePopup();
 
     useEffect(()=>{
@@ -23,12 +24,16 @@ export default function ManageRoutes(){
         fetchData()
     }, [type])
 
+    const handelManage = (e) =>{
+        let id = e.target.closest('[id*="route"]').id.replace("route", "")
+        navigate(`/manageroute/${id}`)
+    }
 
 
     return (
         <>
             {routes.map((r)=>{
-                return <RouteItem key={r.id} route={r}>
+                return <RouteItem key={r.id} route={r} handelClick={handelManage}>
                     <Stars route={r}/>
                 </RouteItem>
             })}

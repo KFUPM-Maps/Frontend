@@ -90,7 +90,7 @@ export default function Home() {
 
 
     return (
-    <div className="w-full h-screen overflow-hidden touch-none relative">
+    <div className="w-full h-full overflow-hidden touch-none relative">
       <SearchBar firstBuilding={firstBuilding} secondBuilding={secondBuilding} setFirstBuilding={setFirstBuilding} setSecondBuilding={setSecondBuilding}/>
       <Map
         className="w-full h-full bg-linear-to-t from-bg-dark to-bg"
