@@ -3,7 +3,7 @@ const config = {
     apiBaseURL: 'http://localhost:4000/api'
   },
   production: {
-    apiBaseURL: 'https://.com/api'
+    apiBaseURL: 'https://kfupm-maps-backend.onrender.com/api'
   }
 }
 
