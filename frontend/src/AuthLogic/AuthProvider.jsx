@@ -1,49 +1,74 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { refreshTokenRequest } from "../api/auth";
 import { AuthContext } from "./AuthContext";
+import { setAuthStore } from "../api/api.js";
+import { logoutRequest } from "../api/auth.js";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("user");
     return saved ? JSON.parse(saved) : null;
   });
+
   const [accessToken, setAccessToken] = useState(() => {
     const saved = localStorage.getItem("accessToken");
-    return saved ? JSON.parse(saved) : null;
+    return saved ?? null;
   });
-  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const tryRefresh = async () => {
-  //     try {
-  //       const data = await refreshTokenRequest();
-  //       setAccessToken(data.accessToken);
-  //       setUser(data.user);
-  //     } catch {
-  //       setUser(null);
-  //     }
-  //   };
-  //   tryRefresh();
-  // }, []);
+  const navigate = useNavigate();
 
   const login = (user, token) => {
     setUser(user);
     setAccessToken(token);
-    localStorage.setItem("user", JSON.stringify(user))
-    localStorage.setItem("accessToken", token)
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("accessToken", token);
   };
 
-  const logout = () => {
-    setUser(null);
-    setAccessToken(null);
-    localStorage.removeItem("user")
-    localStorage.removeItem("accessToken")
-    navigate("/");
+  const logout = async () => {
+    let req = await logoutRequest();
+    if (!req.success) {
+      console.error("Logout failed:", req.error);
+    } else {
+      setUser(null);
+      setAccessToken(null);
+      localStorage.removeItem("user");
+      localStorage.removeItem("accessToken");
+      navigate("/");
+    }
   };
+
+  const updateUser = (newUser) => {
+    setUser(newUser);
+    localStorage.setItem("user", JSON.stringify(newUser));
+  }
+
+  useEffect(() => {
+    setAuthStore({
+      accessToken,
+      setAccessToken,
+      logout,
+    });
+  }, []);
+
+  useEffect(() => {
+    if (accessToken) {
+      localStorage.setItem("accessToken", accessToken);
+    } else {
+      localStorage.removeItem("accessToken");
+    }
+  }, [accessToken]);
 
   return (
-    <AuthContext.Provider value={{ user, accessToken, login, logout, setAccessToken }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        updateUser,
+        accessToken,
+        login,
+        logout,
+        setAccessToken,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

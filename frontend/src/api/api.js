@@ -1,34 +1,76 @@
 import axios from "axios";
-//import { refreshTokenRequest } from "./auth";
 import { API_BASE_URL } from "../config";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  //withCredentials: true
+  withCredentials: true,
 });
 
+export let store = {
+  accessToken: null,
+  setAccessToken: (token) => {
+    store.accessToken = token;
+  },
+  logout: () => {
+    store.accessToken = null;
+  },
+};
 
-// let store = { accessToken: null, setAccessToken: () => {} };
-// export const setAuthStore = (newStore) => (store = newStore);
+export const setAuthStore = ({ accessToken, setAccessToken, logout }) => {
+  store.accessToken = accessToken ?? null;
 
-// api.interceptors.request.use((config) => {
-//   if (store.accessToken) config.headers.Authorization = `Bearer ${store.accessToken}`;
-//   return config;
-// });
+  if (setAccessToken) {
+    store.setAccessToken = (token) => {
+      store.accessToken = token;
+      setAccessToken(token);
+    };
+  }
 
-// api.interceptors.response.use(
-//   (res) => res,
-//   async (error) => {
-//     const original = error.config;
-//     if (error.response?.status === 401 && !original._retry) {
-//       original._retry = true;
-//       const data = await refreshTokenRequest();
-//       store.setAccessToken(data.accessToken);
-//       original.headers.Authorization = `Bearer ${data.accessToken}`;
-//       return api(original);
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+  if (logout) {
+    store.logout = logout;
+  }
+};
+
+api.interceptors.request.use((config) => {
+  if (store.accessToken) {
+    config.headers.Authorization = `Bearer ${store.accessToken}`;
+  }
+  return config;
+});
+
+let refreshPromise = null;
+
+api.interceptors.response.use(
+  (res) => res,
+  async (error) => {
+    const original = error.config;
+
+    if (error.response?.status !== 401 || original._retry) {
+      return Promise.reject(error);
+    }
+
+    original._retry = true;
+
+    if (!refreshPromise) {
+      refreshPromise = api
+        .post("/auth/refresh", {}, { withCredentials: true })
+        .then((res) => {
+          store.setAccessToken(res.data.accessToken);
+          return res.data.accessToken;
+        })
+        .catch((err) => {
+          store.logout();
+          throw err;
+        })
+        .finally(() => {
+          refreshPromise = null;
+        });
+    }
+
+    const newToken = await refreshPromise;
+    original.headers.Authorization = `Bearer ${newToken}`;
+    return api(original);
+  }
+);
 
 export default api;

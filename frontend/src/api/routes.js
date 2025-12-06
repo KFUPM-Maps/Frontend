@@ -4,13 +4,13 @@ export const getRoutesRequest = async (firstBuilding, secondBuilding) =>{
     try{
         const res = await api.get(
             "/routes"
-            //,
-            // { 
-            //     params:{
-            //         firstBuilding,
-            //         secondBuilding
-            //     }
-            // }
+            ,
+            { 
+                params:{
+                    firstBuilding,
+                    secondBuilding
+                }
+            }
         );
         return { success: true, data: res.data };
     }
@@ -24,7 +24,7 @@ export const getRoutesRequest = async (firstBuilding, secondBuilding) =>{
 export const getAllRoutes = async (type) =>{
     try{
         const res = await api.get(
-            `/routes/?status=${type.toLowerCase()}`
+            `/routes/manageroutes/?status=${type.toLowerCase()}`
         );
         return { success: true, data: res.data };
     }
@@ -54,7 +54,7 @@ export const getRouteRequest = async (id) =>{
 export const getUserRoutes = async (type) =>{
     try{
         const res = await api.get(
-            `/routes/?status=${type.toLowerCase()}`
+            `/routes/myroutes/?status=${type.toLowerCase()}`
         );
         return { success: true, data: res.data };
     }

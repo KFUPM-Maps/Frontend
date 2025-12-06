@@ -1,6 +1,6 @@
 const config = {
   development: {
-    apiBaseURL: 'http://localhost:4000/'
+    apiBaseURL: 'http://localhost:4000/api'
   },
   production: {
     apiBaseURL: 'https://.com/api'

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import Layout from "./Layout.jsx";
 import Home from "./pages/Home/Home.jsx";
-import { useAxiosSetup } from "./AuthLogic/useAxiosSetup.jsx";
 import AuthLayout from "./pages/Auth/AuthLayout.jsx";
 import ProtectedRoute from "./AuthLogic/ProtectedRouteLayout.jsx";
 import Login from "./pages/Auth/Login/Login.jsx";
@@ -17,7 +16,6 @@ import ViewRoute from "./pages/ViewRoute/ViewRoute.jsx";
 import ManageRoute from "./pages/ManageRoute/ManageRoute.jsx"
 
 function App() {
-  //useAxiosSetup();
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

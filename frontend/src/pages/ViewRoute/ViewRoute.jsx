@@ -32,11 +32,11 @@ export default function ViewRoute({preview = false}){
     }, [])
 
     useEffect(()=>{
-        setImages(Object.values(route.steps?route.steps:{}).reduce((acc, s) => [...acc, s.photo], []));
+        setImages(route.steps?route.steps.reduce((acc, s) => [...acc, s.photo], []):[]);
     }, [route])
 
     useEffect(()=>{
-        setCaption(route.steps?route.steps[String(index + 1)].caption:"")
+        setCaption(route.steps?route.steps[index].caption:"")
     }, [index, route])
 
     const handelLike = (e) =>{
@@ -48,8 +48,8 @@ export default function ViewRoute({preview = false}){
     
 
     return (
-    <div className="flex flex-col p-4 py-10 sm:py-5 gap-2 items-center h-full w-full"> 
-        <div className="flex justify-center items-baseline gap-2 w-full">
+    <div className="flex flex-col p-4 py-10 sm:py-5 gap-2 items-center h-full w-full overflow-y-auto"> 
+        <div className="flex justify-start items-baseline gap-2 w-1/2 max-w-md">
             <span className="text-3xl">{route.title}</span>
             <span className="text-text-muted">from {route.firstBuilding} to {route.secondBuilding}</span>
         </div>

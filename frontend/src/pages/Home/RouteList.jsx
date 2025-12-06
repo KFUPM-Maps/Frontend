@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRoutesRequest } from "../../api/routes";
 import { usePopup } from "../../components/Popup/PopupContext";
-import {AuthContext} from "../../AuthLogic/AuthContext"
 import RouteItem from "../../components/Routes/RouteItem";
 import Likes from "../../components/Routes/Stars";
 import { useNavigate } from "react-router";

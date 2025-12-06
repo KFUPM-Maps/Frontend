@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import Topthree from "./Topthree";
+import { leaderboardRequest } from "../../api/leaderboard";
+import { usePopup } from "../../components/Popup/PopupContext";
 
 export default function Leaderboard() {
   const [users, setUsers] = useState([]);
+  const popup = usePopup();
 
   useEffect(() => {
-    const userList = [
-      { firstName: "Yousef", lastName: "Alhajri", score: 150 },
-      { firstName: "Khalid", lastName: "Alotaibi", score: 120 },
-      { firstName: "Mohamed", lastName: "Hassan", score: 100 },
-      { firstName: "Ahmed", lastName: "Yahya", score: 95 },
-      { firstName: "Ali", lastName: "Saleh", score: 90 },
-      { firstName: "Osama", lastName: "BinZaid", score: 85 },
-      { firstName: "Hassan", lastName: "Almalki", score: 80 },
-      { firstName: "Abdelrahman ", lastName: "Khaled", score: 75 },
-      { firstName: "Mona", lastName: "Saeed", score: 70 },
-      { firstName: "Nour", lastName: "Ibrahim", score: 65 },
-    ];
-
-    setUsers(userList);
+    const fetchData = async ()=>{
+        let res = await leaderboardRequest();
+        if(res.success){
+            setUsers(res.data)
+        }
+        else{
+            popup.showError("Request failed: " + res.error);
+        }
+    }
+    fetchData()
   }, []);
 
   const sortedUsers = [...users].sort((a, b) => b.score - a.score);

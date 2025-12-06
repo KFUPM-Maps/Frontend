@@ -1,9 +1,14 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../AuthLogic/AuthContext";
 import { usePopup } from "../../components/Popup/PopupContext";
+import {
+  getUpdateAccountRequest,
+  putUpdateAccountRequest,
+  uploadProfilePhoto,
+} from "../../api/account";
 
 export default function Myaccount() {
-  const { user } = useContext(AuthContext);
+  const { user, updateUser } = useContext(AuthContext);
   const popup = usePopup();
 
   // Prefill from context if available
@@ -15,6 +20,7 @@ export default function Myaccount() {
   useEffect(() => {
     setFirstName(user?.firstName ?? "");
     setLastName(user?.lastName ?? "");
+    setPhotoUrl(user?.picture ?? "");
   }, [user]);
 
   const onChoosePhoto = () => fileInputRef.current?.click();
@@ -33,7 +39,46 @@ export default function Myaccount() {
       popup.showError?.("Please fill in both first and last name.");
       return;
     }
-    popup.showSuccess?.("Your changes have been saved.");
+    const fetchData = async () => {
+      if (fileInputRef.current?.files?.length === 0) {
+        let res = await putUpdateAccountRequest({ firstName, lastName });
+        if (res.success) {
+          updateUser(res.data.user);
+          popup.showSuccess("Account updated successfully.");
+        }
+        else {
+          popup.showError("Request failed: " + res.error);
+        }
+        return;
+      }
+
+      let res = await getUpdateAccountRequest();
+      if (res.success) {
+        let photoRes = await uploadProfilePhoto(
+          fileInputRef.current.files[0],
+          res.data.presignedUrl
+        );
+        if (photoRes.success) {
+          let putRes = await putUpdateAccountRequest({
+            firstName,
+            lastName,
+            Key: photoRes.data.Key,
+          });
+          if (putRes.success) {
+            updateUser(putRes.data.user);
+            popup.showSuccess("Account updated successfully.");
+          } else {
+            popup.showError("Request failed: " + putRes.error);
+          }
+        } else {
+          popup.showError("Photo upload failed: " + photoRes.error);
+        }
+      } 
+      else {
+        popup.showError("Request failed: " + res.error);
+      }
+    };
+    fetchData();
   };
 
   return (
