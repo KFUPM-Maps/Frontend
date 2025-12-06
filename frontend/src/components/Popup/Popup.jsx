@@ -26,14 +26,14 @@ export default function Popup({
       {type === "confirm" && (
         <div className="flex gap-2 mt-3">
           <button 
-            onClick={() => onClose("yes")}
-            className="bg-success text-text px-3 py-1 rounded "
+            onClick={() => onClose(true)}
+            className="bg-success text-text px-3 py-1 rounded hover:bg-success/80 "
           >
             Yes
           </button>
           <button 
-            onClick={() => onClose("no")}
-            className="bg-danger text-text px-3 py-1 rounded"
+            onClick={() => onClose(false)}
+            className="bg-danger text-text px-3 py-1 rounded hover:bg-danger/80"
           >
             No
           </button>

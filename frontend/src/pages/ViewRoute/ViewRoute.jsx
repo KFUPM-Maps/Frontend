@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { usePopup } from "../../components/Popup/PopupContext";
 import { getRouteRequest } from "../../api/routes";
 import ProgressBar from "./ProgressBar";
 import ImageCarousel from "./ImageCarousel";
 import { useLocation } from "react-router";
+import { AuthContext } from "../../AuthLogic/AuthContext";
+import { likeRouteRequest } from "../../api/route";
 
 export default function ViewRoute({preview = false}){
     const {id} = useParams();
     const popup = usePopup();
+    const {user} = useContext(AuthContext);
     const location = useLocation()
     const [route, setRoute] = useState({});
     const [images, setImages] = useState([]);
@@ -39,11 +42,24 @@ export default function ViewRoute({preview = false}){
         setCaption(route.steps?route.steps[index].caption:"")
     }, [index, route])
 
-    const handelLike = (e) =>{
-        setRoute({
-            ...route,
-            islikedByUser: !route.islikedByUser
-        })
+    const handelLike = () =>{
+        if(!user){
+            popup.showError("You must be logged in to like a route.");
+            return;
+        }
+        const fetchData = async ()=>{
+            let res = await likeRouteRequest(id, user.id);
+            if(res.success){
+                setRoute({
+                    ...route,
+                    islikedByUser: !route.islikedByUser
+                })
+            }
+            else{
+                popup.showError("Request failed: " + res.error);
+            }
+        }
+        fetchData();
     }
     
 

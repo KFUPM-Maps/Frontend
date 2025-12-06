@@ -29,7 +29,7 @@ export default function RouteItem({route, handelClick, children}){
             <div className="text-right flex gap-1">
                 <span className="hidden md:inline">last updated:</span>
                 <span>
-                    {route.lastUpdated}
+                    {new Date(route.lastUpdated).toISOString().split("T")[0]}
                 </span>
             </div>
         </div>
