@@ -101,7 +101,7 @@ const handleTouchMove = (e) => {
     const newDist = getDistance(e.touches);
 
       if (pinchDistance !== null) {
-        const zoomChange = (newDist - pinchDistance) * zoomSensitivity;
+        const zoomChange = (newDist + pinchDistance) * zoomSensitivity;
 
         let newZoom = zoomLevel + zoomChange;
         let newHeight = 740 + newZoom;
