@@ -148,7 +148,7 @@ const handleTouchMove = (e) => {
         viewBox={`${x} ${y} ${570 + zoomLevel} ${740 + zoomLevel}`} 
         fill="none"
         >
-          <g id="Mask group">
+          <g id="Mask group" className="select-none">
             <mask
               id="mask0_20_307"
               style={{ maskType: "alpha" }}
