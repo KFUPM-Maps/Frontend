@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext";
-import { setAuthStore } from "../api/api.js";
 import { logoutRequest } from "../api/auth.js";
 
 export const AuthProvider = ({ children }) => {
@@ -41,14 +40,6 @@ export const AuthProvider = ({ children }) => {
     setUser(newUser);
     localStorage.setItem("user", JSON.stringify(newUser));
   }
-
-  useEffect(() => {
-    setAuthStore({
-      accessToken,
-      setAccessToken,
-      logout,
-    });
-  }, []);
 
   useEffect(() => {
     if (accessToken) {

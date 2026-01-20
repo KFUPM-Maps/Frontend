@@ -7,28 +7,15 @@ const api = axios.create({
 });
 
 export let store = {
-  accessToken: null,
+  accessToken: localStorage.getItem("accessToken") || null,
   setAccessToken: (token) => {
+    localStorage.setItem("accessToken", token);
     store.accessToken = token;
   },
   logout: () => {
     store.accessToken = null;
+    localStorage.removeItem("accessToken");
   },
-};
-
-export const setAuthStore = ({ accessToken, setAccessToken, logout }) => {
-  store.accessToken = accessToken ?? null;
-
-  if (setAccessToken) {
-    store.setAccessToken = (token) => {
-      store.accessToken = token;
-      setAccessToken(token);
-    };
-  }
-
-  if (logout) {
-    store.logout = logout;
-  }
 };
 
 api.interceptors.request.use((config) => {
