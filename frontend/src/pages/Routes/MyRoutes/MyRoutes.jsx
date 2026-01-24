@@ -5,21 +5,25 @@ import { getUserRoutes } from "../../../api/routes";
 import RouteItem from "../../../components/Routes/RouteItem";
 import Stars from "../../../components/Routes/Stars";
 import { deleteRouteRequest } from "../../../api/routes";
+import Loading from "../../../components/Loading.jsx";
 
 export default function MyRoutes() {
   const [routes, setRoutes] = useState([]);
   const { type } = useOutletContext();
   const popup = usePopup();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       let res = await getUserRoutes(type);
       if (res.success) {
         setRoutes(res.data);
       } else {
         popup.showError("Request failed: " + res.error);
       }
+      setLoading(false);
     };
     fetchData();
   }, [type]);
@@ -30,6 +34,7 @@ export default function MyRoutes() {
       if (!confirm) return;
 
       let id = e.target.closest('[id*="route"]').id.replace("route", "");
+      setLoading(true);
       let res = await deleteRouteRequest(id);
       if (res.success) {
         let newRoutes = routes.filter((r) => r.id !== id);
@@ -38,6 +43,7 @@ export default function MyRoutes() {
       } else {
         popup.showError("Delete request failed: " + res.error);
       }
+      setLoading(false);
     };
     deleteRequest();
   };
@@ -49,7 +55,9 @@ export default function MyRoutes() {
 
   return (
     <>
-      {routes.map((r) => {
+      {loading ? <Loading/> :
+      routes.length === 0 ? <span className="text-text-muted text-xl text-center mt-8">No routes available.</span> :
+      routes.map((r) => {
         return (
           <RouteItem key={r.id} route={r} handelClick={handelUpdate}>
             <button

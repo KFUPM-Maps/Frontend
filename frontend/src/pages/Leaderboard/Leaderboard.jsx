@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Topthree from "./Topthree";
 import { leaderboardRequest } from "../../api/leaderboard";
 import { usePopup } from "../../components/Popup/PopupContext";
+import Loading from "../../components/Loading";
 
 export default function Leaderboard() {
   const [users, setUsers] = useState([]);
   const popup = usePopup();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async ()=>{
@@ -16,6 +18,7 @@ export default function Leaderboard() {
         else{
             popup.showError("Request failed: " + res.error);
         }
+        setLoading(false);
     }
     fetchData()
   }, []);
@@ -30,7 +33,8 @@ export default function Leaderboard() {
         <h2 className="text-3xl md:text-2xl font-semibold text-center mb-6">
           Leaderboard
         </h2>
-
+        {loading ? <Loading /> :
+        <>
         <Topthree topThree={topThree} />
 
         <div className="mt-6 max-h-64 w-3/4 md:1/2 overflow-y-auto pr-1 space-y-3">
@@ -68,7 +72,8 @@ export default function Leaderboard() {
             </div>
           ))}
         </div>
-
+        </>
+        }
       </div>
 
     </div>

@@ -7,6 +7,7 @@ import { usePopup } from "../../../components/Popup/PopupContext";
 const Login = () => {
     const user = useContext(AuthContext);
     const popup = usePopup();
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
     const [form, setForm] = useState({
@@ -24,6 +25,7 @@ const Login = () => {
     const onFormSubmit = (e) => {
         e.preventDefault();
         const performLogin = async () => {
+            setLoading(true);
             const response = await loginRequest(form.email, form.password);
             if (response.success) {
                 user.login(response.data.user, response.data.accessToken);
@@ -33,17 +35,18 @@ const Login = () => {
             else {
                 popup.showError("Login failed: " + response.error);
             }
+            setLoading(false);
         }
 
         performLogin();
     }
     return (
-        <form className="flex flex-col items-start md:items-center gap-2 w-full" onSubmit={(e)=>onFormSubmit(e)}>
+        <form className="flex flex-col items-start md:items-center gap-2 w-full" method="post" action="/login" onSubmit={(e)=>onFormSubmit(e)}>
             <label className="text-text md:self-start" htmlFor="email">Email*</label>
-            <input className="bg-bg-light text-text border border-border-muted p-1 w-full" type="email" id="email" name="email" required value={form.email} onChange={(e)=>onFormChange(e)}/>
+            <input className="bg-bg-light text-text border border-border-muted p-1 w-full" type="email" id="email" name="email" autoComplete="username" required value={form.email} onChange={(e)=>onFormChange(e)}/>
             <label className="text-text md:self-start" htmlFor="password">Password*</label>
-            <input className="bg-bg-light text-text border border-border-muted p-1 w-full" type="password" id="password" name="password" required value={form.password} onChange={(e)=>onFormChange(e)}/>
-            <button className="self-center bg-primary hover:bg-secondary rounded py-2 px-4 mt-2" type="submit">Login</button>
+            <input className="bg-bg-light text-text border border-border-muted p-1 w-full"  type="password" id="password" name="password" autoComplete="current-password" required value={form.password} onChange={(e)=>onFormChange(e)}/>
+            <button className="self-center bg-primary hover:bg-secondary rounded py-2 px-4 mt-2 disabled:opacity-50" disabled={loading} type="submit">Login</button>
         </form>
     );
 };

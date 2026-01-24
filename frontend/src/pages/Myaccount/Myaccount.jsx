@@ -16,6 +16,7 @@ export default function Myaccount() {
   const [lastName, setLastName] = useState(user?.lastName ?? "");
   const [photoUrl, setPhotoUrl] = useState(user?.picture ?? "");
   const fileInputRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setFirstName(user?.firstName ?? "");
@@ -40,15 +41,16 @@ export default function Myaccount() {
       return;
     }
     const fetchData = async () => {
+      setLoading(true);
       if (fileInputRef.current?.files?.length === 0) {
         let res = await putUpdateAccountRequest({ firstName, lastName });
         if (res.success) {
           updateUser(res.data.user);
           popup.showSuccess("Account updated successfully.");
-        }
-        else {
+        } else {
           popup.showError("Request failed: " + res.error);
         }
+        setLoading(false);
         return;
       }
 
@@ -56,7 +58,7 @@ export default function Myaccount() {
       if (res.success) {
         let photoRes = await uploadProfilePhoto(
           fileInputRef.current.files[0],
-          res.data.presignedUrl
+          res.data.presignedUrl,
         );
         if (photoRes.success) {
           let putRes = await putUpdateAccountRequest({
@@ -73,10 +75,10 @@ export default function Myaccount() {
         } else {
           popup.showError("Photo upload failed: " + photoRes.error);
         }
-      } 
-      else {
+      } else {
         popup.showError("Request failed: " + res.error);
       }
+      setLoading(false);
     };
     fetchData();
   };
@@ -111,7 +113,8 @@ export default function Myaccount() {
             <button
               type="button"
               onClick={onChoosePhoto}
-              className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-text px-3 py-2 rounded-lg border border-border-muted"
+              disabled={loading}
+              className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-text px-3 py-2 rounded-lg border border-border-muted disabled:opacity-50"
             >
               <span className="material-symbols-rounded text-xl leading-none">
                 upload
@@ -132,7 +135,8 @@ export default function Myaccount() {
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="bg-bg-light text-text border border-border rounded-lg px-3 py-2 outline-none focus:border-highlight"
+              disabled={loading}
+              className="bg-bg-light text-text border border-border rounded-lg px-3 py-2 outline-none focus:border-highlight disabled:opacity-50"
               placeholder="First Name"
             />
           </div>
@@ -146,8 +150,9 @@ export default function Myaccount() {
               name="lastName"
               type="text"
               value={lastName}
+              disabled={loading}
               onChange={(e) => setLastName(e.target.value)}
-              className="bg-bg-light text-text border border-border rounded-lg px-3 py-2 outline-none focus:border-highlight"
+              className="bg-bg-light text-text border border-border rounded-lg px-3 py-2 outline-none focus:border-highlight disabled:opacity-50"
               placeholder="Last Name"
             />
           </div>
@@ -155,7 +160,8 @@ export default function Myaccount() {
           <div className="pt-2 text-center">
             <button
               type="submit"
-              className="bg-success hover:bg-secondary text-text font-medium px-6 py-2 rounded-lg"
+              className="bg-success hover:bg-secondary text-text font-medium px-6 py-2 rounded-lg disabled:opacity-50"
+              disabled={loading}
             >
               Save
             </button>

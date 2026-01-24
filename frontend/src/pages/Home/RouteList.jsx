@@ -4,11 +4,13 @@ import { usePopup } from "../../components/Popup/PopupContext";
 import RouteItem from "../../components/Routes/RouteItem";
 import Likes from "../../components/Routes/Stars";
 import { useNavigate } from "react-router";
+import Loading from "../../components/Loading";
 
 export default function RouteList({firstBuilding, secondBuilding}){
     const [routes, setRoutes] = useState([]);
     const navigate = useNavigate();
     const popup = usePopup();
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -19,6 +21,7 @@ export default function RouteList({firstBuilding, secondBuilding}){
             else{
                 popup.showError("Request failed: " + res.error);
             }
+            setLoading(false);
         }
         fetchData()
     }, [firstBuilding, secondBuilding])
@@ -42,13 +45,20 @@ export default function RouteList({firstBuilding, secondBuilding}){
                 Add Route
             </button>
         </div>
-        <div className="flex flex-col gap-2 flex-1 overflow-y-auto">
-            {sortedRoutes.map((r)=>
-            <RouteItem key={r.id} route={r} handelClick={handelRouteClick}>
-                <Likes route={r}/>
-            </RouteItem>
+        {loading? 
+        <Loading />
+        :<div className="flex flex-col gap-2 flex-1 overflow-y-auto">
+            {
+                sortedRoutes.length === 0 ?
+                <span className="text-text-muted text-xl text-center mt-8">No routes available. Be the first to add one!</span>
+                :
+                sortedRoutes.map((r)=>
+                <RouteItem key={r.id} route={r} handelClick={handelRouteClick}>
+                    <Likes route={r}/>
+                </RouteItem>
             )}
         </div>
+        }
     </div>
     )
 }
