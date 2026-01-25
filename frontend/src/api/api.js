@@ -15,6 +15,7 @@ export let store = {
   logout: () => {
     store.accessToken = null;
     localStorage.removeItem("accessToken");
+    window.dispatchEvent(new Event("AUTH_LOGOUT"));
   },
 };
 
@@ -31,6 +32,10 @@ api.interceptors.response.use(
   (res) => res,
   async (error) => {
     const original = error.config;
+
+    if (error.config.url === "/auth/refresh") {
+      return Promise.reject(error);
+    }
 
     if (error.response?.status !== 401 || original._retry) {
       return Promise.reject(error);

@@ -49,6 +49,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, [accessToken]);
 
+  useEffect(() => {
+    const handler = () => logout();
+
+    window.addEventListener("AUTH_LOGOUT", handler);
+    return () => window.removeEventListener("AUTH_LOGOUT", handler);
+  }, []);
+
+
   return (
     <AuthContext.Provider
       value={{
